@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :body
       t.integer :user_id
-      t.integer :thread_id
+      t.integer :channel_id
 
       t.timestamps
     end
