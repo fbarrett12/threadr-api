@@ -1,7 +1,21 @@
 class UsersController < ApplicationController
 
     def index
-        @user = User.all
+        @users = User.all
+        render json: @users
+    end
+
+    def login
+        @user = User.find_or_create_by({username: params[:username]})
+        render json: @user, include: "**", status: 200
+    end
+
+    def create 
+        @user = User.create({username: params[:username]})
+    end
+
+    def show
+        @user = User.find(params[:id])
         render json: @user
     end
 
