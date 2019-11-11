@@ -10,9 +10,10 @@ class PostsController < ApplicationController
         {
             title: params[:title],
             body: params[:body],
-            channel_id: params[:thread_id],
+            channel_id: params[:channel_id],
             user_id: params[:user_id]
         })
+        render json: @post, include: "**", status: :created
     end
 
     def show

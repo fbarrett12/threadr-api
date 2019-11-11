@@ -11,6 +11,7 @@ class ChannelsController < ApplicationController
             title: params[:title],
             description: params[:description]
         })
+        render json: @channel, include: "**", status: :created
     end
     
 end

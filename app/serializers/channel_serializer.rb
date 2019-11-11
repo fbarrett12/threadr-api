@@ -1,4 +1,4 @@
 class ChannelSerializer < ActiveModel::Serializer
-    attributes :title, :description
+    attributes :id, :title, :description
     has_many :posts
 end
