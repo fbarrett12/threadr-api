@@ -13,5 +13,10 @@ class ChannelsController < ApplicationController
         })
         render json: @channel, include: "**", status: :created
     end
+
+    def destroy
+        @channel = Channel.find(params[:id]).destroy()
+        render json: {success: "Deleted Thread"}
+    end
     
 end

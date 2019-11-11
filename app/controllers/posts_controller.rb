@@ -21,13 +21,15 @@ class PostsController < ApplicationController
         render json: @post, include: "**", status: :created
     end
 
-    def edit
-        
+    def update
+        @post = Post.find_by(id: params[:id])
+        @post.update(title: params[:title], body: params[:body])
+        render json: @post, include: "**"
     end
 
     def destroy
-        @post = Post.find_by(id: params[:id])
-        @post.destroy()
+        @post = Post.find(params[:id]).destroy()
+        render json: {success: "Deleted Post"}
     end
 
 end
